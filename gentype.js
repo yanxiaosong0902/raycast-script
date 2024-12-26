@@ -29,7 +29,7 @@ function genInterface(data) {
     Object.keys(entry).forEach((item) => {
       const thisValue = entry[item]
       const thisType = typeof thisValue
-      if (thisType !== 'object') {
+      if (thisType !== 'object' || thisValue === null) {
         result += `  ${item}: ${thisType}\n`
       } else {
         let newType = item.replace(/\_(\w)/g, (m, l) => l.toUpperCase())
